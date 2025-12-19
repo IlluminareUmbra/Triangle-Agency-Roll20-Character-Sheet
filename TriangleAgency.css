@@ -1254,6 +1254,10 @@ textarea.transparent {
 
 .networked-counter-box img {
   padding-left: 5px;
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .networked-counter-box input {
@@ -1698,6 +1702,18 @@ input.info {
   margin-bottom: -3px !important;
 }
 
-.pronoun-row div { flex:3; }
-.pronoun-row img { flex:2; }
+.pronoun-row {
+  justify-content: center;
+  align-items: center;
+}
+
+.pronoun-row div { flex:5; }
+.pronoun-row img { 
+  flex:4;
+  width: 80px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 
