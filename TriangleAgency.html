@@ -1,0 +1,1873 @@
+<input type="hidden" class="sheet-tabcontrol" name="attr_sheetTab" value="character" />
+<input type="hidden" name="attr_class" value="salvager" />
+<input type="hidden" name="attr_hp" value="10" />
+<input type="hidden" name="attr_hp_max" value="10" />
+<input type="hidden" name="attr_ap" value="5" />
+<input type="hidden" name="attr_ap_max" value="5" />
+<input type="hidden" name="attr_tp" value="0" />
+<input type="hidden" name="collapsedFields" value="" />
+
+<!-- Table for roll results -->
+<input type="hidden" name="attr_Core-Mechanic" value="" />
+
+<div class="sheet-tabs-wrapper">
+    <button type="action" name="act_character">Character</button>
+    <button type="action" name="act_work_life_balance">Work/Life Balance</button>
+    <button type="action" name="act_anomaly">Anomaly</button>
+    <button type="action" name="act_reality">Reality</button>
+    <button type="action" name="act_competency">Competency</button>
+    <button type="action" name="act_info">Info</button>
+</div>
+
+<div class="sheet-tab-content" data-tab="character">
+    <header class="character-header">
+        <!-- LEFT COLUMN -->
+        <div class="char-column left">
+            <div class="char-field-wrapper name">
+                <div class="char-field name">
+                    <label for="character_name" class="fs-md fw-bold text-dark">Character Name</label>
+                    <input type="text" id="character_name" name="attr_character_name" class="fs-md transparent" />
+                </div>
+                <div class="char-field pronouns">
+                    <label for="pronouns" class="fs-sm fw-bold text-dark">Pronouns</label>
+                    <input type="text" id="pronouns" name="attr_info_pronouns" class="fs-sm transparent" />
+                </div>
+            </div>
+            <div class="char-field-wrapper">
+                <label for="agency_title" class="fs-md fw-bold text-dark">Agency Title</label>
+                <input type="text" id="agency_title" name="attr_agency_title" class="fs-md"/>
+            </div>
+            <div class="char-field-wrapper">
+                <label for="agency_standing" class="fs-md fw-bold text-dark">Agency Standing</label>
+                <input type="text" id="agency_standing" name="attr_agency_standing" class="fs-md"/>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="char-column right">
+            <div class="char-triangle-header">
+                <div class="triangle-wrapper">
+                    <div class="triangle triangle-up-lg-blue"></div>
+                    <span class="triangle-label fs-xl fw-bold text-white">A</span>
+                </div>
+                <div class="char-anomaly-wrapper">
+                    <label for="anomaly" class="fs-md fw-bold text-dark">Anomaly</label>
+                    <input type="text" id="anomaly" name="attr_anomaly" class="fs-md"/>
+                </div>
+            </div>
+            <div class="char-triangle-header">
+                <div class="triangle-wrapper">
+                    <div class="triangle triangle-up-lg-yellow"></div>
+                    <span class="triangle-label fs-xl fw-bold text-white">R</span>
+                </div>
+                <div class="char-reality-wrapper">
+                    <label for="reality" class="fs-md fw-bold text-dark">Reality</label>
+                    <input type="text" id="reality" name="attr_reality" class="fs-md"/>
+                </div>
+            </div>
+            <div class="char-triangle-header">
+                <div class="triangle-wrapper">
+                    <div class="triangle triangle-up-lg-red"></div>
+                    <span class="triangle-label fs-xl fw-bold text-white">C</span>
+                </div>
+                <div class="char-competency-wrapper">
+                    <label for="competency" class="fs-md fw-bold text-dark">Competency</label>
+                    <input type="text" id="competency" name="attr_competency" class="fs-md"/>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CHARACTER BODY -->
+    <div class="character-body">
+        <!-- LEFT COLUMN -->
+        <div class="char-column left">
+            <!-- POINT TRACKERS -->
+            <div class="points-section">
+                <div class="points-wrapper">
+                    <img src="https://via.placeholder.com/100" class="commendations-image" />
+                    <input type="number" class="points-input fs-md" id="commendations" name="attr_commendations" min="0" />
+                    <span class="fs-xl fw-bold text-dark">Commendations</span>
+                </div>
+                <div class="points-wrapper">
+                    <img src="https://via.placeholder.com/100" class="demerits-image" />
+                    <input type="number" class="points-input fs-md" id="demerits" name="attr_demerits" min="0" />
+                    <span class="fs-xl fw-bold text-dark">Demerits</span>
+                </div>
+                <div class="points-wrapper">
+                    <img src="https://via.placeholder.com/100" class="burnout-image" />
+                    <input type="number" class="points-input fs-md" id="additional_burnout" name="attr_additional_burnout" min="0" />
+                    <span class="fs-xl fw-bold text-dark">Additional Burnout</span>
+                </div>
+            </div>
+
+            <!-- NARRATIVE FIELDS -->
+            <div class="narrative-section">
+                <div class="reality-trigger-wrapper narrative-wrapper">
+                    <div class="narrative-title">
+                        <div class="triangle triangle-right-md-yellow"></div>
+                        <span class="fs-lg fw-bold text-reality">Reality Trigger</span>
+                    </div>
+                    <div class="narrative-content reality-content">
+                        <div class="span-wrapper">
+                            <span class="fs-xs fw-normal text-dark">Your GM may trigger this by spending </span>
+                            <span class="fs-xs fw-normal text-competency">3 </span>
+                            <span class="fs-xs fw-normal text-dark">Chaos.</span>
+                        </div>
+                        <textarea name="attr_reality_trigger" id="reality_trigger" class="fs-xs fw-normal text-dark char-tall-multiline"></textarea>
+                    </div>
+                    
+                </div>
+                <div class="burnout-release-wrapper narrative-wrapper">
+                    <div class="narrative-title">
+                        <div class="triangle triangle-right-md-yellow"></div>
+                        <span class="fs-lg fw-bold text-reality">Burnout Release</span>
+                    </div>
+                    <div class="narrative-content reality-content">
+                        <div class="span-wrapper">
+                            <span class="fs-xs fw-normal text-dark">Check this to see if you can cancel your burnout.</span>
+                        </div>
+                        <textarea name="attr_burnout_release" id="burnout_release" class="fs-xs fw-normal text-dark char-med-multiline"></textarea>
+                    </div>
+                </div>
+                <div class="prime-directive-wrapper narrative-wrapper">
+                    <div class="narrative-title">
+                        <div class="triangle triangle-right-md-red"></div>
+                        <span class="fs-lg fw-bold text-competency">Prime Directive</span>
+                    </div>
+                    <div class="narrative-content competency-content">
+                        <div class="span-wrapper">
+                            <span class="fs-xs fw-normal text-dark">Receive 1 Demerit if you:</span>
+                        </div>
+                        <textarea name="attr_prime_directive" id="prime_directive" class="fs-xs fw-normal text-dark char-med-multiline"></textarea>
+                    </div>
+                </div>
+                <div class="sanctioned-behaviors-wrapper narrative-wrapper">
+                    <div class="narrative-title">
+                        <div class="triangle triangle-right-md-red"></div>
+                        <span class="fs-lg fw-bold text-competency">Sanctioned Behaviors</span>
+                    </div>
+                    <div class="narrative-content competency-content sanctioned-content">
+                        <div class="span-wrapper">
+                            <span class="fs-xs fw-normal text-dark">Receive 1 Commendation when you do one of these:</span>
+                        </div>
+                        <div class="bullet-point">
+                            <div class="triangle triangle-right-md-red"></div>
+                            <input type="text" name="attr_sanctioned_behavior_1" class="fs-xs fw-normal text-dark"></input>
+                        </div>
+                        <div class="bullet-point">
+                            <div class="triangle triangle-right-md-red"></div>
+                            <input type="text" name="attr_sanctioned_behavior_2" class="fs-xs fw-normal text-dark"></input>
+                        </div>
+                        <div class="bullet-point">
+                            <div class="triangle triangle-right-md-red"></div>
+                            <input type="text" name="attr_sanctioned_behavior_3" class="fs-xs fw-normal text-dark"></input>
+                        </div>
+                        <div class="span-wrapper">
+                            <span class="fs-xs fw-normal text-dark">If you do all 3 in a single mission receive </span>
+                            <span class="fs-xs fw-normal text-competency">3 </span>
+                            <span class="fs-xs fw-normal text-dark">bonus commendations.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="char-column right">
+            <div class="qa-header">
+                <div class="qa-text">
+                    <span class="line fs-xl fw-bold text-dark">Quality</span>
+                    <span class="line fs-xl fw-bold text-dark">Assurances</span>
+                </div>
+                <img src="your-image.png" class="qa-icon" />
+            </div>
+            <div class="qa-stats">
+                <div class="qa-stat">
+                    <div class="max-triangle-wrapper">
+                        <input type="number" class="triangle-input fs-lg fw-medium text-dark" name="attr_attentiveness" value="0" min="0" max="9"/>
+                        <div class="triangle triangle-up-lg-pink"></div>
+                        <span class="max-label">MAX</span>
+                    </div>
+                    <div class="qa-tracker-wrapper">
+                        <span class="stat-title fs-lg fw-bold text-dark">Attentiveness</span>
+                        <div class="qa-triangle-row">
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_attentiveness_triangle0" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle0"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_attentiveness_triangle1" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle1"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_attentiveness_triangle2" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle2"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_attentiveness_triangle3" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle3"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_attentiveness_triangle4" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle4"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_attentiveness_triangle5" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle5"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_attentiveness_triangle6" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle6"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_attentiveness_triangle7" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle7"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_attentiveness_triangle8" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle8"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="qa-stat">
+                    <div class="max-triangle-wrapper">
+                        <input type="number" class="triangle-input fs-lg fw-medium text-dark" name="attr_duplicity"  value="0" min="0" max="9"/>
+                        <div class="triangle triangle-up-lg-pink"></div>
+                        <span class="max-label">MAX</span>
+                    </div>
+                    <div class="qa-tracker-wrapper">
+                        <span class="stat-title fs-lg fw-bold text-dark">Duplicity</span>
+                        <div class="qa-triangle-row">
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_duplicity_triangle0" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle0"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_duplicity_triangle1" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle1"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_duplicity_triangle2" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle2"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_duplicity_triangle3" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle3"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_duplicity_triangle4" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle4"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_duplicity_triangle5" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle5"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_duplicity_triangle6" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle6"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_duplicity_triangle7" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle7"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_duplicity_triangle8" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle8"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="qa-stat">
+                    <div class="max-triangle-wrapper">
+                        <input type="number" class="triangle-input fs-lg fw-medium text-dark" name="attr_dynamism" value="0" min="0" max="9"/>
+                        <div class="triangle triangle-up-lg-pink"></div>
+                        <span class="max-label">MAX</span>
+                    </div>
+                    <div class="qa-tracker-wrapper">
+                        <span class="stat-title fs-lg fw-bold text-dark">Dynamism</span>
+                        <div class="qa-triangle-row">
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_dynamism_triangle0" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle0"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_dynamism_triangle1" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle1"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_dynamism_triangle2" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle2"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_dynamism_triangle3" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle3"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_dynamism_triangle4" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle4"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_dynamism_triangle5" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle5"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_dynamism_triangle6" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle6"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_dynamism_triangle7" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle7"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_dynamism_triangle8" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle8"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="qa-stat">
+                    <div class="max-triangle-wrapper">
+                        <input type="number" class="triangle-input fs-lg fw-medium text-dark" name="attr_empathy" value="0" min="0" max="9"/>
+                        <div class="triangle triangle-up-lg-pink"></div>
+                        <span class="max-label">MAX</span>
+                    </div>
+                    <div class="qa-tracker-wrapper">
+                        <span class="stat-title fs-lg fw-bold text-dark">Empathy</span>
+                        <div class="qa-triangle-row">
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_empathy_triangle0" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle0"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_empathy_triangle1" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle1"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_empathy_triangle2" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle2"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_empathy_triangle3" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle3"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_empathy_triangle4" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle4"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_empathy_triangle5" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle5"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_empathy_triangle6" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle6"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_empathy_triangle7" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle7"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_empathy_triangle8" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle8"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="qa-stat">
+                    <div class="max-triangle-wrapper">
+                        <input type="number" class="triangle-input fs-lg fw-medium text-dark" name="attr_initiative" value="0" min="0" max="9"/>
+                        <div class="triangle triangle-up-lg-pink"></div>
+                        <span class="max-label">MAX</span>
+                    </div>
+                    <div class="qa-tracker-wrapper">
+                        <span class="stat-title fs-lg fw-bold text-dark">Initiative</span>
+                        <div class="qa-triangle-row">
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_initiative_triangle0" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle0"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_initiative_triangle1" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle1"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_initiative_triangle2" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle2"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_initiative_triangle3" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle3"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_initiative_triangle4" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle4"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_initiative_triangle5" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle5"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_initiative_triangle6" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle6"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_initiative_triangle7" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle7"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_initiative_triangle8" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle8"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="qa-stat">
+                    <div class="max-triangle-wrapper">
+                        <input type="number" class="triangle-input fs-lg fw-medium text-dark" name="attr_persistence" value="0" min="0" max="9"/>
+                        <div class="triangle triangle-up-lg-pink"></div>
+                        <span class="max-label">MAX</span>
+                    </div>
+                    <div class="qa-tracker-wrapper">
+                        <span class="stat-title fs-lg fw-bold text-dark">Persistence</span>
+                        <div class="qa-triangle-row">
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_persistence_triangle0" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle0"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_persistence_triangle1" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle1"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_persistence_triangle2" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle2"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_persistence_triangle3" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle3"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_persistence_triangle4" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle4"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_persistence_triangle5" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle5"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_persistence_triangle6" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle6"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_persistence_triangle7" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle7"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_persistence_triangle8" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle8"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="qa-stat">
+                    <div class="max-triangle-wrapper">
+                        <input type="number" class="triangle-input fs-lg fw-medium text-dark" name="attr_presence" value="0" min="0" max="9"/>
+                        <div class="triangle triangle-up-lg-pink"></div>
+                        <span class="max-label">MAX</span>
+                    </div>
+                    <div class="qa-tracker-wrapper">
+                        <span class="stat-title fs-lg fw-bold text-dark">Presence</span>
+                        <div class="qa-triangle-row">
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_presence_triangle0" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle0"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_presence_triangle1" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle1"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_presence_triangle2" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle2"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_presence_triangle3" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle3"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_presence_triangle4" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle4"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_presence_triangle5" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle5"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_presence_triangle6" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle6"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_presence_triangle7" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle7"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_presence_triangle8" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle8"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="qa-stat">
+                    <div class="max-triangle-wrapper">
+                        <input type="number" class="triangle-input fs-lg fw-medium text-dark" name="attr_professionalism" value="0" min="0" max="9"/>
+                        <div class="triangle triangle-up-lg-pink"></div>
+                        <span class="max-label">MAX</span>
+                    </div>
+                    <div class="qa-tracker-wrapper">
+                        <span class="stat-title fs-lg fw-bold text-dark">Professionalism</span>
+                        <div class="qa-triangle-row">
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_professionalism_triangle0" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle0"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_professionalism_triangle1" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle1"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_professionalism_triangle2" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle2"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_professionalism_triangle3" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle3"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_professionalism_triangle4" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle4"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_professionalism_triangle5" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle5"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_professionalism_triangle6" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle6"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_professionalism_triangle7" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle7"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_professionalism_triangle8" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle8"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="qa-stat">
+                    <div class="max-triangle-wrapper">
+                        <input type="number" class="triangle-input fs-lg fw-medium text-dark" name="attr_subtlety" value="0" min="0" max="9"/>
+                        <div class="triangle triangle-up-lg-pink"></div>
+                        <span class="max-label">MAX</span>
+                    </div>
+                    <div class="qa-tracker-wrapper">
+                        <span class="stat-title fs-lg fw-bold text-dark">Subtlety</span>
+                        <div class="qa-triangle-row">
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_subtlety_triangle0" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle0"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_subtlety_triangle1" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle1"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_subtlety_triangle2" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle2"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_subtlety_triangle3" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle3"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_subtlety_triangle4" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle4"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_subtlety_triangle5" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle5"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_subtlety_triangle6" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle6"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_subtlety_triangle7" class="triangle-hidden" />
+                                <div class="triangle triangle-up-stat-background triangle7"></div>
+                                <div class="triangle triangle-up-stat"></div>
+                            </label>
+                            <label class="triangle-toggle">
+                                <input type="checkbox" name="attr_subtlety_triangle8" class="triangle-hidden" />
+                                <div class="triangle triangle-down-stat-background triangle8"></div>
+                                <div class="triangle triangle-down-stat"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sheet-tab-content" data-tab="work_life_balance"> 
+    <!-- HEADER -->
+    <header class="wlb-header">
+        <span class="fs-xl fw-bold text-dark">Work / Life Balance</span>
+        <div class="wlb-header-sections">
+            <div class="wlb-header-section notice-section">
+                <div class="wlb-header-box notice-box">
+                    <div class="triangle-wrapper">
+                        <div class="triangle triangle-up-md-red"></div>
+                        <span class="triangle-label fs-lg fw-bold text-white">!</span>
+                    </div>
+                    <div class="multiline-wrapper">
+                        <span class="fs-xs fw-normal text-competency">Each time you mark a box you must</span>
+                        <div class="span-wrapper">
+                            <span class="fs-xs fw-bold text-competency">strike one out from the end </span>
+                            <span class="fs-xs fw-normal text-competency">of the other track</span>
+                            <span class="fs-xs fw-normal text-anomaly">s</span>
+                            <span class="fs-xs fw-normal text-competency">.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="multiline-wrapper">
+                    <span class="fs-xxs fw-normal text-dark-med">Mark 1 box per available time after each Mission, then visit the</span>
+                    <span class="fs-xxs fw-normal text-dark-med">Playwalled Documents matching any code you mark.</span>
+                </div>
+            </div>
+            <div class="wlb-header-section mvp-section">
+                <div class="wlb-header-box mvp-box">
+                    <img src="https://via.placeholder.com/100" >
+                    <div class="multiline-wrapper">
+                        <span class="fs-lg fw-bold text-competency">MVP</span>
+                        <span class="fs-xs fw-normal text-competency">Times Received</span>
+                    </div>
+                    <input class="fs-xl fw-medium text-competency" type="number" min="0" value="0" name="attr_mvp"></input>
+                </div>
+                 <div class="multiline-wrapper">
+                    <span class="fs-xxs fw-normal text-dark-med">Awarded to the player who</span>
+                    <span class="fs-xxs fw-normal text-dark-med">earns the most Commendations.</span>
+                </div>
+            </div>
+            <div class="wlb-header-section probation-section">
+                <div class="wlb-header-box probation-box">
+                    <img src="https://via.placeholder.com/100">
+                    <div class="multiline-wrapper">
+                        <span class="fs-lg fw-bold text-dark">Probation</span>
+                        <span class="fs-xs fw-normal text-dark">Times Received</span>
+                    </div>
+                    <input class="fs-xl fw-medium text-dark" type="number" min="0" value="0" name="attr_probation"></input>
+                </div>
+                 <div class="multiline-wrapper">
+                    <span class="fs-xxs fw-normal text-dark-med">Awarded to the player who</span>
+                    <span class="fs-xxs fw-normal text-dark-med">earns the most Demerits.</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN BODY -->
+    <div class="wlb-body">
+        <div class="wlb-body-section">
+            <span class="fs-lg fw-bold text-competency">Competency</span>
+            <div class="arrow-row">
+                <div class="arrow-wrapper first">
+                    <span class="fs-xxs fw-med-bold text-dark-light">TRAINEE</span>
+                    <div class="arrow short right-triangle"></div>
+                </div>
+                <div class="arrow-wrapper">
+                    <span class="fs-xxs fw-med-bold text-dark-light">ASSOCIATE</span>
+                    <div class="arrow medium right-triangle"></div>
+                </div>
+                <div class="arrow-wrapper">
+                    <span class="fs-xxs fw-med-bold text-dark-light">SR. ASSOCIATE</span>
+                    <div class="arrow medium right-triangle"></div>
+                </div>
+                <div class="arrow-wrapper">
+                    <span class="fs-xxs fw-med-bold text-dark-light">ASSISTANT DIRECTOR</span>
+                    <div class="arrow medium right-triangle"></div>
+                </div>
+                <div class="arrow-wrapper">
+                    <span class="fs-xxs fw-med-bold text-dark-light">DIRECTOR</span>
+                    <div class="arrow medium right-triangle"></div>
+                </div>
+                <div class="arrow-wrapper">
+                    <span class="fs-xxs fw-med-bold text-white">secret</span>
+                    <div class="arrow xshort"></div>
+                </div>
+            </div>
+            <div class="wlb-tracker-wrapper competency-tracker-wrapper">
+                <div class="toggle-grid-row top-row">
+                    <div class="tracker-connection competency-connection"></div>
+                    <div class="triangle triangle-right-lg-red"></div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_1" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_1_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_2" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_2_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_3" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_3_cycle" class="toggle-box fs-sm fw-bold text-competency-light">A3</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_4" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_4_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_5" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_5_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_6" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_6_cycle" class="toggle-box fs-sm fw-bold text-competency-light">D4</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_7" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_7_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_8" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_8_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_9" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_9_cycle" class="toggle-box fs-sm fw-bold text-competency-light">G3</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_10" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_10_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_11" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_11_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_12" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_12_cycle" class="toggle-box fs-sm fw-bold text-competency-light">J3</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_13" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_13_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_14" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_14_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_15" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_15_cycle" class="toggle-box fs-sm fw-bold text-competency-light">N3</button>
+                    </div>
+                </div>
+                <div class="toggle-grid-row bottom-row">
+                    <div class="circle circle-competency"></div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_16" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_16_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_17" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_17_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_18" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_18_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_19" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_19_cycle" class="toggle-box fs-sm fw-bold text-competency-light">Y2</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_20" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_20_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_21" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_21_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_22" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_22_cycle" class="toggle-box fs-sm fw-bold text-competency-light">W8</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_23" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_23_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_24" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_24_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_25" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_25_cycle" class="toggle-box fs-sm fw-bold text-competency-light">T3</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_26" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_26_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_27" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_27_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_28" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_28_cycle" class="toggle-box fs-sm fw-bold text-competency-light">Q3</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_29" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_29_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_comp_30" class="toggle-input" value="0" />
+                        <button type="action" name="act_comp_30_cycle" class="toggle-box fs-sm fw-bold text-competency-light"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow-row">
+                <div class="arrow-wrapper first bottom">
+                    <div class="arrow long circle-end"></div>
+                    <span class="fs-xxs fw-med-bold text-dark-light">CHAIR</span>
+                </div>
+                <div class="arrow-wrapper bottom">
+                    <div class="arrow medium left-triangle"></div>
+                    <span class="fs-xxs fw-med-bold text-dark-light">EXECUTIVE VP</span>
+                </div>
+                <div class="arrow-wrapper bottom">
+                    <div class="arrow medium left-triangle"></div>
+                    <span class="fs-xxs fw-med-bold text-dark-light">SENIOR VP</span>
+                </div>
+                <div class="arrow-wrapper bottom">
+                    <div class="arrow medium left-triangle"></div>
+                    <span class="fs-xxs fw-med-bold text-dark-light">VICE PRESIDENT</span>
+                </div>
+                <div class="arrow-wrapper bottom">
+                    <div class="arrow short left-triangle"></div>
+                    <div class="multiline-wrapper">
+                        <span class="fs-xxs fw-med-bold text-dark-light">REGIONAL</span>
+                        <span class="fs-xxs fw-med-bold text-dark-light">DIRECTOR</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="wlb-reward-text competency-reward-text">
+                <div class="multiline-wrapper left">
+                    <span class="fs-xxs fw-normal text-dark-med">Each time you mark a box in your Competency track, increase your</span>
+                    <span class="fs-xxs fw-normal text-dark-med">Maximum Quality Assurances by 1 in any Quality, up to a maximum of 9.</span>
+                    <div class="span-wrapper">
+                        <span class="fs-xxs fw-normal text-dark-med">Then, gain </span>
+                        <span class="fs-xxs fw-normal text-competency">3 </span>
+                        <span class="fs-xxs fw-normal text-dark-med">Commendations.</span>
+                    </div>
+                </div>
+                <div class="multiline-wrapper right">
+                    <span class="fs-xxs fw-normal text-dark-med">When you receive Mission MVP, mark 1 box in your Competency</span>
+                    <span class="fs-xxs fw-normal text-dark-med">track without striking one out from the other tracks.</span>
+                </div>
+            </div>
+        </div> 
+        <div class="wlb-body-section">
+            <span class="fs-lg fw-bold text-reality">Reality</span>
+            <div class="wlb-tracker-wrapper reality-tracker-wrapper">
+                <div class="toggle-grid-row top-row">
+                    <div class="tracker-connection reality-connection"></div>
+                    <div class="triangle triangle-right-lg-yellow"></div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_1" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_1_cycle" class="toggle-box fs-sm fw-bold text-reality-med">C4</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_2" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_2_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_3" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_3_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_4" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_4_cycle" class="toggle-box fs-sm fw-bold text-reality-med">L11</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_5" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_5_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_6" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_6_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_7" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_7_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_8" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_8_cycle" class="toggle-box fs-sm fw-bold text-reality-med">E2</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_9" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_9_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_10" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_10_cycle" class="toggle-box fs-sm fw-bold text-reality-med">O4</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_11" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_11_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_12" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_12_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_13" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_13_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_14" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_14_cycle" class="toggle-box fs-sm fw-bold text-reality-med">T6</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_15" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_15_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                </div>
+                <div class="toggle-grid-row bottom-row">
+                    <div class="circle circle-reality"></div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_16" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_16_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_17" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_17_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_18" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_18_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_19" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_19_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_20" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_20_cycle" class="toggle-box fs-sm fw-bold text-reality-med">E3</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_21" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_21_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_22" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_22_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_23" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_23_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_24" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_24_cycle" class="toggle-box fs-sm fw-bold text-reality-med">H5</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_25" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_25_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_26" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_26_cycle" class="toggle-box fs-sm fw-bold text-reality-med">X3</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_27" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_27_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_28" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_28_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_29" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_29_cycle" class="toggle-box fs-sm fw-bold text-reality-med"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_real_30" class="toggle-input" value="0" />
+                        <button type="action" name="act_real_30_cycle" class="toggle-box fs-sm fw-bold text-reality-med">V2</button>
+                    </div>
+                </div>
+            </div>
+            <div class="wlb-reward-text reality-reward-text">
+                <div class="multiline-wrapper left">
+                    <span class="fs-xxs fw-normal text-dark-med">Each time you mark a box in your Reality track, increase your Connection</span>
+                    <span class="fs-xxs fw-normal text-dark-med">with any Relationship by 1, then repeat for each Networked Relationship.</span>
+                </div>
+                <div class="multiline-wrapper right">
+                    <span class="fs-xxs fw-normal text-dark-med">When you receive neither Mission MVP nor Probation, you may</span>
+                    <span class="fs-xxs fw-normal text-dark-med">increase your Connection with any Relationship by 1.</span>
+                </div>
+            </div>
+        </div> 
+        <div class="wlb-body-section">
+            <span class="fs-lg fw-bold text-anomaly">Anomaly</span>
+            <div class="wlb-tracker-wrapper anomaly-tracker-wrapper">
+                <div class="toggle-grid-row top-row">
+                    <div class="tracker-connection anomaly-connection"></div>
+                    <div class="triangle triangle-right-lg-blue"></div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_1" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_1_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light">H4</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_2" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_2_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light">H3</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_3" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_3_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_4" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_4_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_5" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_5_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light">U2</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_6" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_6_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_7" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_7_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light">X2</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_8" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_8_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_9" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_9_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_10" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_10_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_11" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_11_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light">N1</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_12" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_12_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_13" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_13_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light">Q2</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_14" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_14_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_15" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_15_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                </div>
+                <div class="toggle-grid-row bottom-row">
+                    <div class="circle circle-anomaly"></div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_16" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_16_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_17" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_17_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_18" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_18_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_19" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_19_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_20" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_20_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_21" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_21_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_22" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_22_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_23" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_23_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light">A7</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_24" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_24_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_25" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_25_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_26" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_26_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_27" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_27_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light">G8</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_28" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_28_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_29" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_29_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light">L10</button>
+                    </div>
+                    <div class="toggle-box-wrapper">
+                        <input type="hidden" name="attr_anom_30" class="toggle-input" value="0" />
+                        <button type="action" name="act_anom_30_cycle" class="toggle-box fs-sm fw-bold text-anomaly-light"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="wlb-reward-text anomaly-reward-text">
+                <div class="multiline-wrapper left-half left">
+                    <span class="fs-xxs fw-normal text-anomaly">Each time you mark a box in your Anomaly track, pick one:</span>
+                    <div class="bullet-point">
+                        <div class="triangle triangle-right-sm-blue"></div>
+                        <div class="span-wrapper">
+                            <span class="fs-xxs fw-bold text-anomaly">Practice</span>
+                            <span class="fs-xxs fw-normal text-dark-med">: Mark Practiced on an Anomaly Ability.</span>
+                        </div>
+                    </div>
+                    <div class="bullet-point multiline-bullet">
+                        <div class="triangle triangle-right-sm-blue"></div>
+                        <div class="multiline-wrapper">
+                            <div class="span-wrapper">
+                                <span class="fs-xxs fw-bold text-anomaly">Be Known</span>
+                                <span class="fs-xxs fw-normal text-dark-med">: Erase Practiced from an Anomaly ability and ask your</span>
+                            </div>
+                            <span class="fs-xxs fw-normal text-dark-med">team that ability's question. Mark the track of the answer that</span>
+                            <span class="fs-xxs fw-normal text-dark-med">gets the most votes, then receive any unlocked Abilities.</span>
+                        </div>
+                    </div>
+                    <span class="fs-xxs fw-med-bold text-anomaly">(I can teach you what all this means if you spend 1 time to go to H4!)</span>
+                </div>
+                <div class="multiline-wrapper right-half right">
+                    <span class="fs-xxs fw-normal text-dark-med">When you receive Probation, mark 1 box in your Anomaly</span>
+                    <span class="fs-xxs fw-normal text-dark-med">track without striking one out from the other tracks.</span>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+</div>
+
+<div class="sheet-tab-content" data-tab="anomaly">
+    <div class="anomaly-header">
+        <span class="fs-xl fw-bold text-dark">Anomaly Abilities</span>
+        <div class="char-triangle-header">
+            <div class="triangle-wrapper">
+                <div class="triangle triangle-up-lg-blue"></div>
+                <span class="triangle-label fs-xl fw-bold text-white">A</span>
+            </div>
+            <div class="char-anomaly-wrapper">
+                <label for="anomaly" class="fs-md fw-bold text-anomaly">Anomaly</label>
+                <input type="text" id="anomaly" name="attr_anomaly" class="fs-md fw-normal text-dark transparent"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Abilities Section -->
+    <fieldset class="repeating_anomalies">
+        <div class="anomaly-ability">
+            <div class="ability-header">
+                <div class="ability-header-field wide first">
+                    <span class="fs-xs fw-bold text-anomaly">ABILITY</span>
+                    <input type="text" name="attr_ability_name" class="fs-xs fw-normal text-dark ability-input ability-title transparent"/>
+                </div>
+                <div class="ability-header-field mid">
+                    <span class="fs-xs fw-bold text-anomaly">TRIGGER</span>
+                    <input type="text" name="attr_ability_trigger" class="fs-xs fw-normal text-dark ability-input ability-trigger transparent"/>
+                </div>
+                <div class="ability-header-field thin last">
+                    <span class="fs-xs fw-bold text-anomaly">QUALITY</span>
+                    <input type="text" name="attr_ability_quality" class="fs-xs fw-normal text-dark ability-input ability-quality transparent"/>
+                </div>    
+            </div>
+            <div class="ability-body">
+                <!-- Left Column -->
+                <div class="ability-column left">
+                    <span class="ability-label fs-sm fw-medium text-anomaly">On a Success</span>
+                    <textarea name="attr_ability_success" class="fs-xs fw-normal text-dark ability-textarea transparent success"></textarea>
+
+                    <input type="text" name="attr_custom_title" class="ability-input custom-title fs-sm fw-medium text-anomaly" />
+                    <textarea name="attr_custom_effect" class="fs-xs fw-normal text-dark ability-textarea transparent custom"></textarea>
+                </div>
+
+                <!-- Right Column -->
+                <div class="ability-column right">
+                    <span class="ability-label fs-sm fw-medium text-competency">On a Failure</span>
+                    <textarea name="attr_ability_failure" class="fs-xs fw-normal text-dark ability-textarea transparent failure"></textarea>
+
+                    <div class="ability-question-box">
+                        <!-- Question Box Header -->
+                        <div class="question-header">
+                            <div class="question-left flex-row">
+                                <span class="fs-sm fw-bold text-anomaly">Q:</span>
+                                <textarea type="text" name="attr_question_text" class="fs-xs fw-normal text-dark question-input transparent q-box"></textarea>
+                            </div>
+
+                            <div class="question-right flex-col">
+                                <div class="question-practiced">
+                                    <span class="fs-xs fw-bold text-anomaly">PRACTICED?</span>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="attr_practiced" class="checkbox-input" />
+                                        <span class="checkbox-box ability"></span>
+                                    </label>
+                                </div>
+                                <div class="question-page">
+                                    <span class="fs-xs fw-bold text-anomaly">PAGE #</span>
+                                    <input type="text" name="attr_page_number" class="fs-xs fw-normal text-dark question-page-input transparent anomaly-underlined centered" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question Answers -->
+                        <div class="question-answer-row">
+                            <div class="question-answer-row-left flex-row">
+                                <div class="flex-row align-center">
+                                    <span class="fs-sm fw-bold text-anomaly">A:</span>
+                                    <input type="text" name="attr_answer_1" class="fs-xs fw-normal text-dark answer-input transparent q-box"/>
+                                </div>
+                                <div class="arrow ability right-triangle"></div>
+                            </div>
+                            <div class="question-answer-row-right flex-row">
+                                <div class="answer-checks flex-row">
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="attr_answer_1_check1" class="checkbox-input" />
+                                        <span class="checkbox-box ability"></span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="attr_answer_1_check2" class="checkbox-input" />
+                                        <span class="checkbox-box ability"></span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="attr_answer_1_check3" class="checkbox-input" />
+                                        <span class="checkbox-box ability"></span>
+                                    </label>
+                                </div>
+                                <input type="text" name="attr_answer_1_value" class="fs-xs fw-normal text-dark playwall-input transparent anomaly-underlined centered"/>
+                            </div>
+                        </div>
+
+                        <div class="question-answer-row">
+                            <div class="question-answer-row-left flex-row">
+                                <div class="flex-row align-center">
+                                    <span class="fs-sm fw-bold text-anomaly">A:</span>
+                                    <input type="text" name="attr_answer_2" class="fs-xs fw-normal text-dark answer-input transparent q-box"/>
+                                </div>
+                                <div class="arrow ability right-triangle"></div>
+                            </div>
+                            <div class="question-answer-row-right flex-row">
+                                <div class="answer-checks">
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="attr_answer_2_check1" class="checkbox-input" />
+                                        <span class="checkbox-box ability"></span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="attr_answer_2_check2" class="checkbox-input" />
+                                        <span class="checkbox-box ability"></span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="attr_answer_2_check3" class="checkbox-input" />
+                                        <span class="checkbox-box ability"></span>
+                                    </label>
+                                </div>
+                                <input type="text" name="attr_answer_2_value" class="fs-xs fw-normal text-dark playwall-input transparent anomaly-underlined centered" />
+                            </div>
+                        </div>
+
+                        <div class="answer-wrapper">
+                            <div class="question-answer-row extra-answer">
+                                <div class="question-answer-row-left flex-row">
+                                    <div class="flex-row align-center">
+                                        <span class="fs-sm fw-bold text-anomaly">A:</span>
+                                        <input type="text" name="attr_answer_3" class="fs-xs fw-normal text-dark answer-input transparent q-box"/>
+                                    </div>
+                                    <div class="arrow ability right-triangle"></div>
+                                </div>
+                                <div class="question-answer-row-right flex-row">
+                                    <div class="answer-checks">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="attr_answer_3_check1" class="checkbox-input" />
+                                            <span class="checkbox-box ability"></span>
+                                        </label>
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="attr_answer_3_check2" class="checkbox-input" />
+                                            <span class="checkbox-box ability"></span>
+                                        </label>
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="attr_answer_3_check3" class="checkbox-input" />
+                                            <span class="checkbox-box ability"></span>
+                                        </label>
+                                    </div>
+                                    <input type="text" name="attr_answer_3_value" class="fs-xs fw-normal text-dark playwall-input transparent anomaly-underlined centered"/>
+                                </div>
+                            </div>
+                            
+                            <label class="answer-toggle fs-xxs">
+                                <input type="checkbox" name="attr_show_extra_answer" class="toggle-extra-answer" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="extra-condition-wrapper flex-col">
+                <div class="extra-condition">
+                    <input type="text" name="attr_custom_title_extra" class="ability-input extra custom-title fs-sm fw-medium text-anomaly" />
+                    <textarea name="attr_custom_effect_extra" class="fs-xs fw-normal text-dark ability-textarea extra transparent custom"></textarea>
+                </div>
+                <label class="condition-toggle fs-xxs">
+                    <input type="checkbox" name="attr_show_extra_condition" class="toggle-extra-condition" />
+                </label>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<div class="sheet-tab-content" data-tab="reality">
+    <div class="relationships-header flex-col">
+        <span class="fs-xl fw-bold text-dark">Relationships</span>
+        <div class="flex-row justify-between">
+            <div class="networked-counter-box flex-row">
+                <img src="https://via.placeholder.com/100" />
+                <span class="fs-lg fw-bold text-dark">Networked Relationships</span>
+                <input type="number" class="fs-xl fw-medium text-dark" min="0" value="0" name="attr_networked_counter">
+            </div>
+            <div class="char-triangle-header">
+                <div class="triangle-wrapper">
+                    <div class="triangle triangle-up-lg-yellow"></div>
+                    <span class="triangle-label fs-xl fw-bold text-white">R</span>
+                </div>
+                <div class="char-reality-wrapper">
+                    <label for="reality" class="fs-md fw-bold text-reality">Reality</label>
+                    <input type="text" id="reality" name="attr_reality" class="fs-md transparent"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relationships-body flex-row">
+        <div class="fieldset-wrapper flex-col">
+            <fieldset class="repeating_relationships-left">
+                <div class="relationship-box">
+                    <div class="relationship-header flex-row">
+                        <div class="relationship-header-field wide first">
+                            <span class="fs-xs fw-bold text-reality-dark">Name</span>
+                            <input type="text" name="attr_relationship_name" class="relationship relationship-title transparent"/>
+                        </div>
+                        <div class="relationship-header-field mid">
+                            <span class="fs-xs fw-bold text-reality-dark">Played by</span>
+                            <input type="text" name="attr_relationship_trigger" class="relationship relationship-trigger transparent"/>
+                        </div>
+                    </div>
+                    <div class="relationship-body flex-col">
+                        <span class="fs-xs fw-bold text-reality-dark">Description</span>
+                        <input type="text" name="attr_relationship_desc" class="relationship body transparent">
+                        <div class="network-tracker">
+                            <div class="number-line flex-row">
+                                <span class="fs-xs fw-bold text-reality-dark">0</span>
+                                <span class="fs-xs fw-bold text-reality-dark">1</span>
+                                <span class="fs-xs fw-bold text-reality-dark">2</span>
+                                <span class="fs-xs fw-bold text-reality-dark">3</span>
+                                <span class="fs-xs fw-bold text-reality-dark">4</span>
+                                <span class="fs-xs fw-bold text-reality-dark">5</span>
+                                <span class="fs-xs fw-bold text-reality-dark">6</span>
+                                <span class="fs-xs fw-bold text-reality-dark">7</span>
+                                <span class="fs-xs fw-bold text-reality-dark">8</span>
+                                <span class="fs-xs fw-bold text-reality-dark">9</span>
+                            </div>
+                            <div class="networked-checks flex-row">
+                                <div class="triangle triangle-right-dark-yellow relationship-triangle"></div>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_1">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_2">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_3">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_4">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_5">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_6">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_7">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_8">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox large">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_9">
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="networked-label flex-row">
+                            <span class="fs-xs fw-bold text-reality-dark">NETWORKED</span>
+                            <div class="triangle triangle-up-dark-yellow relationship-triangle"></div>
+                        </div>
+                        <span class="fs-xs fw-bold text-reality-dark">Connection Bonus</span>
+                        <div class="bonus-wrapper flex-row">
+                            <textarea name="attr_connection_bonus" class="relationship transparent"></textarea>
+                                </label>
+                            <div class="flex-col active">
+                                <label class="active-checkbox">
+                                    <input type="checkbox" class="active-input" name="attr_active_toggle">
+                                    <span></span>
+                                </label>
+                                <span class="fs-xs fw-bold text-reality-dark">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="fieldset-wrapper flex-col">
+            <fieldset class="repeating_relationships-right">
+                <div class="relationship-box">
+                    <div class="relationship-header flex-row">
+                        <div class="relationship-header-field wide first">
+                            <span class="fs-xs fw-bold text-reality-dark">Name</span>
+                            <input type="text" name="attr_relationship_name" class="relationship relationship-title transparent"/>
+                        </div>
+                        <div class="relationship-header-field mid">
+                            <span class="fs-xs fw-bold text-reality-dark">Played by</span>
+                            <input type="text" name="attr_relationship_trigger" class="relationship relationship-trigger transparent"/>
+                        </div>
+                    </div>
+                    <div class="relationship-body flex-col">
+                        <span class="fs-xs fw-bold text-reality-dark">Description</span>
+                        <input type="text" name="attr_relationship_desc" class="relationship body transparent">
+                        <div class="network-tracker">
+                            <div class="number-line flex-row">
+                                <span class="fs-xs fw-bold text-reality-dark">0</span>
+                                <span class="fs-xs fw-bold text-reality-dark">1</span>
+                                <span class="fs-xs fw-bold text-reality-dark">2</span>
+                                <span class="fs-xs fw-bold text-reality-dark">3</span>
+                                <span class="fs-xs fw-bold text-reality-dark">4</span>
+                                <span class="fs-xs fw-bold text-reality-dark">5</span>
+                                <span class="fs-xs fw-bold text-reality-dark">6</span>
+                                <span class="fs-xs fw-bold text-reality-dark">7</span>
+                                <span class="fs-xs fw-bold text-reality-dark">8</span>
+                                <span class="fs-xs fw-bold text-reality-dark">9</span>
+                            </div>
+                            <div class="networked-checks flex-row">
+                                <div class="triangle triangle-right-dark-yellow relationship-triangle"></div>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_1">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_2">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_3">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_4">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_5">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_6">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_7">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_8">
+                                    <span></span>
+                                </label>
+                                <label class="network-checkbox large">
+                                    <input type="checkbox" class="circle-toggle" name="attr_circle_toggle_9">
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="networked-label flex-row">
+                            <span class="fs-xs fw-bold text-reality-dark">NETWORKED</span>
+                            <div class="triangle triangle-up-dark-yellow relationship-triangle"></div>
+                        </div>
+                        <span class="fs-xs fw-bold text-reality-dark">Connection Bonus</span>
+                        <div class="bonus-wrapper flex-row">
+                            <textarea name="attr_connection_bonus" class="relationship transparent"></textarea>
+                                </label>
+                            <div class="flex-col active">
+                                <label class="active-checkbox">
+                                    <input type="checkbox" class="active-input" name="attr_active_toggle">
+                                    <span></span>
+                                </label>
+                                <span class="fs-xs fw-bold text-reality-dark">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+<div class="sheet-tab-content" data-tab="competency">
+    <div class="competency-header">
+        <div class="multiline-wrapper">
+            <span class="fs-xl fw-bold text-dark">Requisitions</span>
+            <span class="fs-xl fw-bold text-dark">& Work/Life Benefits</span>
+        </div>
+        <div class="char-triangle-header">
+            <div class="triangle-wrapper">
+                <div class="triangle triangle-up-lg-red"></div>
+                <span class="triangle-label fs-xl fw-bold text-white">C</span>
+            </div>
+            <div class="char-competency-wrapper">
+                <label for="competency" class="fs-md fw-bold text-dark">Competency</label>
+                <input type="text" id="competency" name="attr_competency" class="fs-md fw-normal text-dark transparent"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Requisitions Section -->
+    <div class="requisitions-body flex-row">
+        <div class="fieldset-wrapper flex-col">
+            <fieldset class="repeating_requisitions-left">
+                <div class="requisition-box">
+                    <div class="requisition-header flex-row">
+                        <div class="requisition-header-field wide first">
+                            <span class="fs-xs fw-bold text-competency">Name</span>
+                            <input type="text" name="attr_requisition_name" class="requisition requisition-title transparent"/>
+                        </div>
+                        <div class="requisition-header-field mid">
+                            <span class="fs-xs fw-bold text-competency">Played by</span>
+                            <input type="text" name="attr_requisition_trigger" class="requisition requisition-trigger transparent"/>
+                        </div>
+                    </div>
+                    <div class="requisition-body flex-col">
+                        <span class="fs-xs fw-bold text-competency">Effect</span>
+                        <textarea name="attr_requisition_effect" class="requisition transparent"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="fieldset-wrapper flex-col">
+            <fieldset class="repeating_requisitions-right">
+                <div class="requisition-box">
+                    <div class="requisition-header flex-row">
+                        <div class="requisition-header-field wide first">
+                            <span class="fs-xs fw-bold text-competency">Name</span>
+                            <input type="text" name="attr_requisition_name" class="requisition requisition-title transparent"/>
+                        </div>
+                        <div class="requisition-header-field mid">
+                            <span class="fs-xs fw-bold text-competency">Played by</span>
+                            <input type="text" name="attr_requisition_trigger" class="requisition requisition-trigger transparent"/>
+                        </div>
+                    </div>
+                    <div class="requisition-body flex-col">
+                        <span class="fs-xs fw-bold text-competency">Effect</span>
+                        <textarea name="attr_requisition_effect" class="requisition transparent"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+<div class="sheet-tab-content" data-tab="info">
+    <div class="info-body flex-row">
+        <!-- LEFT SECTION -->
+        <div class="info-left flex-col">
+            <span class="fs-xl fw-bold text-dark">Welcome, Agent!</span>
+            <div class="multiline-wrapper">
+                <span class="fs-xs fw-normal text-dark">Please answer the following questions as truthfully as possible</span>
+                <div class="span-wrapper">
+                    <span class="fs-xs fw-normal text-dark">so the </span>
+                    <span class="fs-xs fw-normal text-competency">Agency </span>
+                    <span class="fs-xs fw-normal text-dark">and your coworkers can learn more about you.</span>
+                </div>
+            </div>
+            <div class="info-question flex-col">
+                <div class="span-wrapper flex-row info-question-q">
+                    <span class="number-badge fs-sm fw-bold text-white">1</span>
+                    <span class="fs-sm fw-bold text-dark">How did you come in contact with your Anomaly?</span>
+                </div>
+                <textarea name="attr_info_q_1" class="info tall fs-sm fw-normal text-dark transparent"></textarea>
+            </div>
+            <div class="info-question flex-col">
+                <div class="span-wrapper flex-row info-question-q">
+                    <span class="number-badge fs-sm fw-bold text-white">2</span>
+                    <span class="fs-sm fw-bold text-dark">How did the Agency find you?</span>
+                </div>
+                <textarea name="attr_info_q_2" class="info tall fs-sm fw-normal text-dark transparent"></textarea>
+            </div>
+            <div class="info-question flex-col">
+                <div class="span-wrapper flex-row info-question-q">
+                    <span class="number-badge fs-sm fw-bold text-white">3</span>
+                    <span class="fs-sm fw-bold text-dark">Do your powers have a unique visual manifestation?</span>
+                </div>
+                <textarea name="attr_info_q_3" class="info tall fs-sm fw-normal text-dark transparent"></textarea>
+            </div>
+            <div class="info-question flex-col">
+                <div class="span-wrapper flex-row info-question-q">
+                    <span class="number-badge fs-sm fw-bold text-white">4</span>
+                    <span class="fs-sm fw-bold text-dark">How do you take your coffee?</span>
+                </div>
+                <input type="text" name="attr_info_q_4" class="info fs-sm fw-normal text-dark transparent"></textarea>
+            </div>
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="info-right flex-col">
+            <div class="info-id-card flex-col">
+                <img class="avatar" name="attr_character_avatar">
+                <div class="flex-col">
+                    <span class="fs-sm fw-bold text-competency">Name</span>
+                    <input type="text" name="attr_character_name" class="fs-sm fw-bold text-dark transparent"></input>
+                </div>
+                <div class="pronoun-row flex-row">
+                    <div class="flex-col">
+                        <span class="fs-xs fw-bold text-competency">Pronouns</span>
+                        <input type="text" name="attr_info_pronouns" class="fs-xs fw-bold text-dark transparent"></input>
+                    </div>
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="info-emergency-contact info-box flex-col">
+                <div class="flex-col">
+                    <span class="fs-sm fw-bold text-competency">Emergency Contact</span>
+                    <input type="text" name="attr_info_emergency_contact" class="fs-sm fw-bold text-dark transparent"></input>
+                </div>
+                <div class="flex-col">
+                    <span class="fs-xs fw-bold text-competency">Relationship</span>
+                    <input type="text" name="attr_info_contact_relationship" class="fs-xs fw-bold text-dark transparent"></input>
+                </div>
+            </div>
+            <div class="info-salary info-box">
+                <div class="flex-col">
+                    <span class="fs-sm fw-bold text-competency">Annual Salary</span>
+                    <input type="text" name="attr_info_salary" class="fs-sm fw-bold text-dark transparent"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM SECTION -->
+    <div class="info-bottom flex-col">
+        <div class="info-question flex-col">
+            <div class="span-wrapper flex-row info-question-q">
+                <span class="number-badge fs-sm fw-bold text-white">5</span>
+                <span class="fs-sm fw-bold text-dark">Please describe your prior work experience.</span>
+            </div>
+            <textarea name="attr_info_q_5" class="info short fs-sm fw-normal text-dark transparent"></textarea>
+        </div>
+        <div class="info-question flex-col">
+            <div class="span-wrapper flex-row info-question-q">
+                <span class="number-badge fs-sm fw-bold text-white">6</span>
+                <span class="fs-sm fw-bold text-dark">What is your level of familiarity with Adobe, Excel, and Google Suite?</span>
+            </div>
+            <input type="text" name="attr_info_q_6" class="info fs-sm fw-normal text-dark transparent"></textarea>
+        </div>
+        <div class="info-question flex-col">
+            <div class="span-wrapper flex-row info-question-q">
+                <span class="number-badge fs-sm fw-bold text-white">7</span>
+                <span class="fs-sm fw-bold text-dark">What do you bring to the table in a collaborative work environment?</span>
+            </div>
+            <textarea name="attr_info_q_7" class="info short fs-sm fw-normal text-dark transparent"></textarea>
+        </div>
+        <div class="info-question flex-col">
+            <div class="span-wrapper flex-row info-question-q">
+                <img src="placeholder.com">
+                <span class="fs-sm fw-bold text-dark">Additional Notes</span>
+            </div>
+            <textarea name="attr_info_notes" class="info short fs-sm fw-normal text-dark transparent"></textarea>
+        </div>
+    </div>
+</div>
+
+<script type="text/worker">
+    const tabs = [
+        "character",
+        "work_life_balance",
+        "anomaly",
+        "reality",
+        "competency",
+        "custom_tracks",
+        "info"
+    ];
+
+    tabs.forEach(tab => {
+        on(`clicked:${tab}`, () => setAttrs({ sheetTab: tab }));
+    });
+
+
+    const wlb = [
+        "comp",
+        "real",
+        "anom",
+        "track_15",
+        "track_30"
+    ]
+
+    wlb.forEach(field => {
+        for(let i = 1; i <= 30; i++){
+            on(`clicked:${field}_${i}_cycle`, () => {
+                const attrName = `${field}_${i}`;
+                getAttrs([attrName], (v) => {
+                    const value = parseInt(v[attrName]) || 0;
+                    // Increment the attribute value by 1, or cycle back to 0 if the incremented value is equal to 3.
+                    setAttrs({
+                        [attrName]: (value + 1) % 3
+                    });
+                });
+            });
+        }
+    });
+
+    on("clicked:repeating_track_15:1_cycle", function(eventInfo) {
+        // eventInfo.sourceAttribute => e.g. "repeating_track_15_-ABC123_1_cycle"
+        const parts = eventInfo.sourceAttribute.split('_'); 
+        const rowID = parts[2];        // "-ABC123"
+        const attrNum = parts[3];      // "1"
+        
+        const attrName = `repeating_track_15_${rowID}_${attrNum}`;
+        
+        console.log(attrName);
+
+        getAttrs([attrName], function(values){
+            const value = parseInt(values[attrName]) || 0;
+            setAttrs({ [attrName]: (value + 1) % 3 });
+        });
+    });
+
+</script>
