@@ -193,7 +193,7 @@ textarea {
 .character-body .char-column.left { flex: 3 1 0; }
 .character-body .char-column.right { flex: 2 1 0; }
 
-.character-body .char-column > .points-section
+.character-body .char-column > .points-section,
 .character-body .char-column > .narrative-section {
   width: 100%;
   display: flex;
@@ -209,8 +209,11 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  padding: 13px;
   gap: 8px;
+}
+
+.points-section {
+  gap: 20px;
 }
 
 .points-wrapper input { 
@@ -229,6 +232,13 @@ textarea {
   line-height: 70%;
   margin: 0;            /* remove any default margins */
   padding: 0; 
+}
+.points-wrapper img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-bottom: -5px;
 }
 
 .narrative-wrapper {
@@ -306,6 +316,12 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: flex-end; /* aligns the text block and image nicely */
+}
+.qa-header img {
+  width: 100px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .qa-text {
@@ -576,6 +592,18 @@ textarea {
   padding: 0 0; /* vertical padding only */ 
   outline: none; 
   text-align: center;
+}
+
+.wlb-header-box.mvp-box,
+.wlb-header-box.probation-box {
+  gap: 5px !important;
+}
+
+.wlb-header-box img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .mvp-section input { border-left: 1.5px solid #f2d4d5;}
