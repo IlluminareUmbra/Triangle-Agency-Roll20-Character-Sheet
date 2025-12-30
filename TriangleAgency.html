@@ -19,6 +19,24 @@
     <button type="action" name="act_info">Info</button>
 </div>
 
+<rolltemplate class="sheet-rolltemplate-attentiveness">
+  <div class="sheet-template-container">
+    <h1>{{name}}</h1>
+
+    {{#triscendence}}
+    <div class="sheet-alert">
+      ⚠ TRISCENDENCE ⚠
+    </div>
+    {{/triscendence}}
+
+    <div class="sheet-results">
+      <div><strong>Success:</strong> {{success}}</div>
+      <div><strong>Threes Rolled:</strong> {{threes}}</div>
+      <div><strong>Chaos Generated:</strong> {{chaos}}</div>
+    </div>
+  </div>
+</rolltemplate>
+
 <div class="sheet-tab-content" data-tab="character">
     <header class="character-header">
         <!-- LEFT COLUMN -->
@@ -190,7 +208,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Attentiveness</span>
+                        <button
+                            type="action"
+                            name="act_attentiveness"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Attentiveness
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_attentiveness_triangle0" class="triangle-hidden" />
@@ -1868,6 +1891,33 @@
             const value = parseInt(values[attrName]) || 0;
             setAttrs({ [attrName]: (value + 1) % 3 });
         });
+    });
+
+    on("clicked:attentiveness", () => {
+
+        startRoll(
+            "&{template:attentiveness} {{name=Attentiveness}} {{threes=[[6d4=3]]}} {{chaos=0}} {{success=}} {{triscendence=}}",
+            (results) => {
+
+                <!-- let threes = results.results.threes.result;
+                let threes_count = threes.toInt();
+                let chaos = 6 - threes_count;
+                let success = threes_count > 0 ? "Yes" : "No";
+                let triscendence = threes_count === 3 ? "⚠ TRISCENDENCE ⚠" : ""; -->
+
+                // burnout logic here
+
+                sendChat("GM", `/w gm Threes rolled: ${threes}, Chaos generated: ${chaos}`);
+
+                <!-- finishRoll(results.rollId, {
+                    threes: threes,
+                    chaos: chaos,
+                    success: success,
+                    triscendence: triscendence
+                }); -->
+            }
+        );
+
     });
 
 </script>
