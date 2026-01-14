@@ -1861,13 +1861,59 @@
 </div>
 
 <rolltemplate class="sheet-rolltemplate-test">
-    <div class="sheet-template-container">
-        <h1>{{name}}</h1>
-        <div class="sheet-results">
-            <h4>Result: {{computed::threes}}</h4>
-            <h4>Threes: {{computed::total}}</h4>
-            <h4>Chaos Created = {{computed::chaos}}</h4>
+    <div class="qa-roll-card {{computed::triscendence_class}}">
+
+        <div class="qa-header">
+            <span class="qa-name">{{name}}</span>
         </div>
+
+        <div class="qa-body">
+            <div class="qa-row">
+                <span class="qa-label">Result</span>
+                <span class="qa-value">{{computed::threes}}</span>
+            </div>
+
+            <div class="qa-row">
+                <span class="qa-label">Threes</span>
+                <span class="qa-value">{{computed::total}}</span>
+            </div>
+
+            <div class="qa-row">
+                <span class="qa-label">Chaos</span>
+                <span class="qa-value">{{computed::chaos}}</span>
+            </div>
+        </div>
+
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-triscendence">
+    <div class="qa-roll-card triscendence-roll">
+
+        <!-- Header -->
+        <div class="qa-header">
+            <span class="qa-name">✦ TRISCENDENCE ✦</span>
+        </div>
+
+        <!-- Body -->
+        <div class="qa-body">
+
+            <div class="qa-row full-width">
+                <span class="qa-label">Event</span>
+                <span class="qa-value">Something incredible happens!</span>
+            </div>
+
+            <div class="qa-row full-width">
+                <span class="qa-label">Choices</span>
+                <div class="qa-value qa-options">
+                    <div class="qa-option"><strong>All Hands:</strong> Add any number of threes to this roll.</div>
+                    <div class="qa-option"><strong>Circle Back:</strong> Replenish any 3 spent Quality Assurances.</div>
+                    <div class="qa-option"><strong>Employee of the Moment:</strong> Receive 3 commendations.</div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </rolltemplate>
 
@@ -1932,19 +1978,21 @@
             getAttrs(triangleAttrs, async (values) => {
                 let checkedCount = 0;
                 for (let i = 0; i <= 8; i++) {
-                    console.log(values[`${attribute}_triangle${i}`])
                     if (values[`${attribute}_triangle${i}`] === "on") {
                         checkedCount++;
                     }
                 }
-                console.log(checkedCount)
                 let burnout = checkedCount === 0 ? 1 : 0;
                 let additionalBurnout = parseInt(values.additional_burnout);
 
-                let rollBase = "&{template:test} {{name=Attentiveness}} {{threes=[[6d4=3cs=3cf=0]]}} {{chaos=[[0]]}} {{total=[[0]]}}";
+                let rollBase = "&{template:test} {{name=Attentiveness}} {{threes=[[6d4=3cs=3cf=0]]}} {{chaos=[[0]]}} {{total=[[0]]}} {{triscendence=[[0]]}}";
                 let rollResult = await startRoll(rollBase);
-                let computedValues = await calcValues(rollResult, additionalBurnout, burnout);
 
+                if (rollResult.results.threes.result === 3) {
+                    startRoll("&{template:triscendence}");
+                }
+
+                let computedValues = await calcValues(rollResult, additionalBurnout, burnout);
                 finishRoll(rollResult.rollId, computedValues);
             });
         });
@@ -1952,6 +2000,15 @@
 
     const calcValues = async (rollResult, additionalBurnout, burnout) => {
         let result = rollResult.results.threes.result;
+
+        if (result === 3) {
+            return {
+                total: 3,
+                chaos: 0,
+                threes: "TRISCENDENCE",
+            };
+        }
+
         let total = result - burnout - additionalBurnout;
         let chaos = (6 - result) + burnout + additionalBurnout;
 
@@ -1967,7 +2024,7 @@
         return {
             total: total,
             chaos: chaos,
-            threes: successText
+            threes: successText,
         };
     };
 
