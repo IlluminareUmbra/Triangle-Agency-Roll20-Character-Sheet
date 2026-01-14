@@ -389,6 +389,7 @@ textarea {
 
 .stat-title {
   margin-bottom: 5px;
+  text-align: left;
 }
 
 .qa-triangle-row {
@@ -899,6 +900,13 @@ input.transparent {
   background: transparent;
   border: none;
   border-radius: 0%;
+}
+button.transparent{
+  background: transparent;
+  border: none;
+  border-radius: 0%;
+  padding-left: 0;
+  padding-bottom: 5px;
 }
 textarea.transparent {
   background: transparent;

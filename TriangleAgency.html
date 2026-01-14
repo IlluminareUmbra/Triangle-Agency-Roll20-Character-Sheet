@@ -252,7 +252,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Duplicity</span>
+                        <button
+                            type="action"
+                            name="act_duplicity"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Duplicity
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_duplicity_triangle0" class="triangle-hidden" />
@@ -1820,6 +1825,17 @@
     </div>
 </div>
 
+<rolltemplate class="sheet-rolltemplate-test">
+    <div class="sheet-template-container">
+        <h1>{{name}}</h1>
+        <div class="sheet-results">
+            <h4>Result: {{computed::threes}}</h4>
+            <h4>Threes: {{computed::total}}</h4>
+            <h4>Chaos Created = {{computed::chaos}}</h4>
+        </div>
+    </div>
+</rolltemplate>
+
 <script type="text/worker">
     const tabs = [
         "character",
@@ -1856,31 +1872,52 @@
         }
     });
 
-    on("clicked:attentiveness", () => {
 
-        startRoll(
-            "&{template:default} {{name=Attentiveness}} {{threes=[[6d4=3]]}}",
-            (results) => {
+    const attribute_names = [
+        "attentiveness",
+        "duplicity",
+    ];
 
-                // THIS is the success count
-                const threes = results.results.threes.total ?? results.results.threes.result;
+    attribute_names.forEach(attribute => {
+        on(`clicked:${attribute}`, async () => {
+            getAttrs(["additional_burnout", `${attribute}`], async (values) => {
+                let additionalBurnout = parseInt(values.additional_burnout);
+                let qa_count = parseInt(values[`${attribute}`]);
 
-                const chaos = 6 - threes;
+                let rollBase = "&{template:test} {{name=Attentiveness}} {{threes=[[6d4=3cs=3cf=0]]}} {{chaos=[[0]]}} {{total=[[0]]}}";
+                let rollResult = await startRoll(rollBase);
+                let computedValues = await calcValues(rollResult, additionalBurnout, qa_count);
 
-                finishRoll(results.rollId, {
-                    threes,
-                    chaos
-                });
-
-                // Now print safely
-                sendChat(
-                    "",
-                    `Successes: ${threes} | Chaos: ${chaos}`
-                );
-            }
-        );
-
+                finishRoll(rollResult.rollId, computedValues);
+            });
+        });
     });
+
+    const calcValues = async (rollResult, additionalBurnout, stat_value) => {
+        let burnout = 0;
+        if (stat_value == 0) {
+            burnout = 1;
+        }
+        let result = rollResult.results.threes.result;
+        let total = result - burnout - additionalBurnout;
+        let chaos = (6 - result) + burnout + additionalBurnout;
+
+        if (total <= 0) {
+            total = 0;
+        }
+        else if (total % 3 == 0) {
+            chaos = 0;
+        }
+
+        let successText = total > 0 ? "Success" : "Failure";
+
+        return {
+            total: total,
+            chaos: chaos,
+            threes: successText
+        };
+    };
+
 
 
 </script>
