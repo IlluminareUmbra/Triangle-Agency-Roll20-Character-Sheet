@@ -1632,6 +1632,14 @@ input.info {
   width: 100%;
   gap: 20px;
 }
+.info-question-q img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  flex-shrink: 0;
+  padding: 0;
+  margin-right: -5px;
+}
 
 .info-box { 
   border: 1.5px solid #eec0c9;  /* pinkish border */
