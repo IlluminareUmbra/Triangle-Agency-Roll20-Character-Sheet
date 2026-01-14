@@ -19,24 +19,6 @@
     <button type="action" name="act_info">Info</button>
 </div>
 
-<rolltemplate class="sheet-rolltemplate-attentiveness">
-  <div class="sheet-template-container">
-    <h1>{{name}}</h1>
-
-    {{#triscendence}}
-    <div class="sheet-alert">
-      ⚠ TRISCENDENCE ⚠
-    </div>
-    {{/triscendence}}
-
-    <div class="sheet-results">
-      <div><strong>Success:</strong> {{success}}</div>
-      <div><strong>Threes Rolled:</strong> {{threes}}</div>
-      <div><strong>Chaos Generated:</strong> {{chaos}}</div>
-    </div>
-  </div>
-</rolltemplate>
-
 <div class="sheet-tab-content" data-tab="character">
     <header class="character-header">
         <!-- LEFT COLUMN -->
@@ -1853,13 +1835,10 @@
         on(`clicked:${tab}`, () => setAttrs({ sheetTab: tab }));
     });
 
-
     const wlb = [
         "comp",
         "real",
-        "anom",
-        "track_15",
-        "track_30"
+        "anom"
     ]
 
     wlb.forEach(field => {
@@ -1877,47 +1856,31 @@
         }
     });
 
-    on("clicked:repeating_track_15:1_cycle", function(eventInfo) {
-        // eventInfo.sourceAttribute => e.g. "repeating_track_15_-ABC123_1_cycle"
-        const parts = eventInfo.sourceAttribute.split('_'); 
-        const rowID = parts[2];        // "-ABC123"
-        const attrNum = parts[3];      // "1"
-        
-        const attrName = `repeating_track_15_${rowID}_${attrNum}`;
-        
-        console.log(attrName);
-
-        getAttrs([attrName], function(values){
-            const value = parseInt(values[attrName]) || 0;
-            setAttrs({ [attrName]: (value + 1) % 3 });
-        });
-    });
-
     on("clicked:attentiveness", () => {
 
         startRoll(
-            "&{template:attentiveness} {{name=Attentiveness}} {{threes=[[6d4=3]]}} {{chaos=0}} {{success=}} {{triscendence=}}",
+            "&{template:default} {{name=Attentiveness}} {{threes=[[6d4=3]]}}",
             (results) => {
 
-                <!-- let threes = results.results.threes.result;
-                let threes_count = threes.toInt();
-                let chaos = 6 - threes_count;
-                let success = threes_count > 0 ? "Yes" : "No";
-                let triscendence = threes_count === 3 ? "⚠ TRISCENDENCE ⚠" : ""; -->
+                // THIS is the success count
+                const threes = results.results.threes.total ?? results.results.threes.result;
 
-                // burnout logic here
+                const chaos = 6 - threes;
 
-                sendChat("GM", `/w gm Threes rolled: ${threes}, Chaos generated: ${chaos}`);
+                finishRoll(results.rollId, {
+                    threes,
+                    chaos
+                });
 
-                <!-- finishRoll(results.rollId, {
-                    threes: threes,
-                    chaos: chaos,
-                    success: success,
-                    triscendence: triscendence
-                }); -->
+                // Now print safely
+                sendChat(
+                    "",
+                    `Successes: ${threes} | Chaos: ${chaos}`
+                );
             }
         );
 
     });
+
 
 </script>
