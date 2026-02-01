@@ -1728,7 +1728,7 @@ input.info {
 /* ROLL TEMPLATE */
 /* --- Card Base --- */
 .sheet-rolltemplate-test .sheet-qa-roll-card {
-    background: linear-gradient(#2a2c34, #191b22);
+    background: linear-gradient(#6c617b, #301b49);
     border: 2px solid #555;
     border-radius: 10px;
     padding: 10px;
@@ -1764,6 +1764,11 @@ input.info {
     text-align: center;
 }
 
+/* Full-width rows */
+.sheet-rolltemplate-test .sheet-qa-row.sheet-full-width {
+    grid-column: 1 / -1;
+}
+
 /* --- Labels & Values --- */
 .sheet-rolltemplate-test .sheet-qa-label {
     display: block;
@@ -1777,6 +1782,7 @@ input.info {
     font-weight: bold;
 }
 
+/* --- Kill Roll20 inline roll styling --- */
 .sheet-rolltemplate-test .inlinerollresult {
     background: transparent !important;
     border: none !important;
@@ -1785,12 +1791,12 @@ input.info {
 
 /* --- Triscendence Card Base --- */
 .sheet-rolltemplate-triscendence .sheet-qa-roll-card {
-    background: linear-gradient(to bottom, red, grey);
+    background: linear-gradient(to bottom, #c82030, #301b49);
     border: 3px solid white;
     border-radius: 14px;
     padding: 12px;
     width: 240px;
-    box-shadow: 0 0 18px white, 0 0 30px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 18px white, 0 0 30px #301b49;
     font-family: "Palatino Linotype", serif;
     color: #fff;
 }
@@ -1817,8 +1823,8 @@ input.info {
 
 /* --- Row --- */
 .sheet-rolltemplate-triscendence .sheet-qa-row {
-    background: red;
-    border: 1px solid red;
+    background: #c82030;
+    border: 1px solid #c82030;
     border-radius: 8px;
     padding: 8px;
     text-align: left;
