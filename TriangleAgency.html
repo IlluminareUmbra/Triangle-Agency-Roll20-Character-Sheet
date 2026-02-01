@@ -190,7 +190,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Attentiveness</span>
+                        <button
+                            type="action"
+                            name="act_attentiveness"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Attentiveness
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_attentiveness_triangle0" class="triangle-hidden" />
@@ -247,7 +252,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Duplicity</span>
+                        <button
+                            type="action"
+                            name="act_duplicity"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Duplicity
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_duplicity_triangle0" class="triangle-hidden" />
@@ -304,7 +314,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Dynamism</span>
+                        <button
+                            type="action"
+                            name="act_dynamism"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Dynamism
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_dynamism_triangle0" class="triangle-hidden" />
@@ -361,7 +376,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Empathy</span>
+                        <button
+                            type="action"
+                            name="act_empathy"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Empathy
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_empathy_triangle0" class="triangle-hidden" />
@@ -418,7 +438,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Initiative</span>
+                        <button
+                            type="action"
+                            name="act_initiative"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Initiative
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_initiative_triangle0" class="triangle-hidden" />
@@ -475,7 +500,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Persistence</span>
+                        <button
+                            type="action"
+                            name="act_persistence"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Persistence
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_persistence_triangle0" class="triangle-hidden" />
@@ -532,7 +562,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Presence</span>
+                        <button
+                            type="action"
+                            name="act_presence"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Presence
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_presence_triangle0" class="triangle-hidden" />
@@ -589,7 +624,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Professionalism</span>
+                        <button
+                            type="action"
+                            name="act_professionalism"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Professionalism
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_professionalism_triangle0" class="triangle-hidden" />
@@ -646,7 +686,12 @@
                         <span class="max-label">MAX</span>
                     </div>
                     <div class="qa-tracker-wrapper">
-                        <span class="stat-title fs-lg fw-bold text-dark">Subtlety</span>
+                        <button
+                            type="action"
+                            name="act_subtlety"
+                            class="stat-title fs-lg fw-bold text-dark transparent">
+                            Subtlety
+                        </button>
                         <div class="qa-triangle-row">
                             <label class="triangle-toggle">
                                 <input type="checkbox" name="attr_subtlety_triangle0" class="triangle-hidden" />
@@ -1815,6 +1860,65 @@
     </div>
 </div>
 
+<rolltemplate class="sheet-rolltemplate-test">
+    <div class="qa-roll-card {{computed::triscendence_class}}">
+
+        <div class="qa-header">
+            <span class="qa-name">{{name}}</span>
+        </div>
+
+        <div class="qa-body">
+
+            <!-- Full-width Result row -->
+            <div class="qa-row full-width">
+                <span class="qa-label">Result</span>
+                <span class="qa-value">{{computed::threes}}</span>
+            </div>
+
+            <div class="qa-row">
+                <span class="qa-label">Threes</span>
+                <span class="qa-value">{{computed::total}}</span>
+            </div>
+
+            <div class="qa-row">
+                <span class="qa-label">Chaos</span>
+                <span class="qa-value">{{computed::chaos}}</span>
+            </div>
+
+        </div>
+
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-triscendence">
+    <div class="qa-roll-card triscendence-roll">
+
+        <!-- Header -->
+        <div class="qa-header">
+            <span class="qa-name">✦ TRISCENDENCE ✦</span>
+        </div>
+
+        <!-- Body -->
+        <div class="qa-body">
+
+            <div class="qa-row full-width">
+                <span class="qa-label">Congratulations!</span>
+                <span class="qa-label">Choose one of the following rewards:</span>
+            </div>
+
+            <div class="qa-row full-width">
+                <div class="qa-value qa-options">
+                    <div class="qa-option"><strong>All Hands:</strong> Add any number of threes to this roll.</div>
+                    <div class="qa-option"><strong>Circle Back:</strong> Replenish any 3 spent Quality Assurances.</div>
+                    <div class="qa-option"><strong>Employee of the Moment:</strong> Receive 3 commendations.</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</rolltemplate>
+
 <script type="text/worker">
     const tabs = [
         "character",
@@ -1830,13 +1934,10 @@
         on(`clicked:${tab}`, () => setAttrs({ sheetTab: tab }));
     });
 
-
     const wlb = [
         "comp",
         "real",
-        "anom",
-        "track_15",
-        "track_30"
+        "anom"
     ]
 
     wlb.forEach(field => {
@@ -1854,20 +1955,81 @@
         }
     });
 
-    on("clicked:repeating_track_15:1_cycle", function(eventInfo) {
-        // eventInfo.sourceAttribute => e.g. "repeating_track_15_-ABC123_1_cycle"
-        const parts = eventInfo.sourceAttribute.split('_'); 
-        const rowID = parts[2];        // "-ABC123"
-        const attrNum = parts[3];      // "1"
-        
-        const attrName = `repeating_track_15_${rowID}_${attrNum}`;
-        
-        console.log(attrName);
 
-        getAttrs([attrName], function(values){
-            const value = parseInt(values[attrName]) || 0;
-            setAttrs({ [attrName]: (value + 1) % 3 });
+    const attribute_names = [
+        "attentiveness",
+        "duplicity",
+        "dynamism",
+        "empathy",
+        "initiative",
+        "persistence",
+        "presence",
+        "professionalism",
+        "subtlety"
+    ];
+
+    attribute_names.forEach(attribute => {
+        on(`clicked:${attribute}`, async () => {
+            let triangleAttrs = [];
+
+            for (let i = 0; i <= 8; i++) {
+                triangleAttrs.push(`${attribute}_triangle${i}`);
+            }
+            triangleAttrs.push("additional_burnout");
+
+            getAttrs(triangleAttrs, async (values) => {
+                let checkedCount = 0;
+                for (let i = 0; i <= 8; i++) {
+                    if (values[`${attribute}_triangle${i}`] === "on") {
+                        checkedCount++;
+                    }
+                }
+                let burnout = checkedCount === 0 ? 1 : 0;
+                let additionalBurnout = parseInt(values.additional_burnout);
+
+                let rollBase = "&{template:test} {{name=Attentiveness}} {{threes=[[6d4=3cs=3cf=0]]}} {{chaos=[[0]]}} {{total=[[0]]}} {{triscendence=[[0]]}}";
+                let rollResult = await startRoll(rollBase);
+
+                if (rollResult.results.threes.result === 3) {
+                    startRoll("&{template:triscendence}");
+                }
+
+                let computedValues = await calcValues(rollResult, additionalBurnout, burnout);
+                finishRoll(rollResult.rollId, computedValues);
+            });
         });
     });
+
+    const calcValues = async (rollResult, additionalBurnout, burnout) => {
+        let result = rollResult.results.threes.result;
+
+        if (result === 3) {
+            return {
+                total: 3,
+                chaos: 0,
+                threes: "TRISCENDENCE",
+            };
+        }
+
+        let total = result - burnout - additionalBurnout;
+        let chaos = (6 - result) + burnout + additionalBurnout;
+
+        if (total <= 0) {
+            total = 0;
+        }
+        else if (total % 3 == 0) {
+            chaos = 0;
+        }
+
+        let successText = total > 0 ? "Success" : "Failure";
+
+        return {
+            total: total,
+            chaos: chaos,
+            threes: successText,
+        };
+    };
+
+
 
 </script>
