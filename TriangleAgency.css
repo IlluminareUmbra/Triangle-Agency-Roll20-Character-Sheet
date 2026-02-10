@@ -272,6 +272,68 @@ textarea {
   outline: none; 
 }
 
+/* Align title row */
+.burnout-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Push slider to right */
+.burnout-switch {
+    margin-left: auto;
+    position: relative;
+    display: inline-block;
+    align-self: center;
+    width: 28px !important;
+    height: 20px !important;
+    flex: 0 0 auto !important; /* prevent flex stretching */
+}
+
+/* Hide real checkbox */
+.burnout-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider track */
+.burnout-slider {
+    position: absolute;
+    cursor: pointer;
+    left: 0;
+    right: 0;
+    top: 8px; 
+    bottom: 0;
+    height: 18px;
+    background-color: #444;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+/* Slider knob */
+.burnout-slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 2px;
+    top: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+/* ON state */
+.burnout-switch input:checked + .burnout-slider {
+    background-color: #eeaf1e; 
+    box-shadow: 0 0 6px #eeaf1e;
+}
+
+.burnout-switch input:checked + .burnout-slider:before {
+    transform: translateX(20px);
+}
+
 .char-tall-multiline {
   height: 75px !important;
 }

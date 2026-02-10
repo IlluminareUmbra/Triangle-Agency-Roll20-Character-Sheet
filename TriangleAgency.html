@@ -119,9 +119,13 @@
                     
                 </div>
                 <div class="burnout-release-wrapper narrative-wrapper">
-                    <div class="narrative-title">
+                    <div class="narrative-title burnout-title-row">
                         <div class="triangle triangle-right-md-yellow"></div>
                         <span class="fs-lg fw-bold text-reality">Burnout Release</span>
+                        <label class="burnout-switch">
+                            <input type="checkbox" name="attr_burnout_toggle" />
+                            <span class="burnout-slider"></span>
+                        </label>
                     </div>
                     <div class="narrative-content reality-content">
                         <div class="span-wrapper">
@@ -1975,7 +1979,7 @@
             for (let i = 0; i <= 8; i++) {
                 triangleAttrs.push(`${attribute}_triangle${i}`);
             }
-            triangleAttrs.push("additional_burnout");
+            triangleAttrs.push("additional_burnout", "burnout_toggle");
 
             getAttrs(triangleAttrs, async (values) => {
                 let checkedCount = 0;
@@ -1987,7 +1991,15 @@
                 let burnout = checkedCount === 0 ? 1 : 0;
                 let additionalBurnout = parseInt(values.additional_burnout);
 
-                let rollBase = "&{template:test} {{name=Attentiveness}} {{threes=[[6d4=3cs=3cf=0]]}} {{chaos=[[0]]}} {{total=[[0]]}} {{triscendence=[[0]]}}";
+                let burnoutRelease = values.burnout_toggle === "on";
+
+                // If burnout release is toggled on, wipe all burnout
+                if (burnoutRelease) {
+                    burnout = 0;
+                    additionalBurnout = 0;
+                }
+
+                let rollBase = `&{template:test} {{name=${attribute.charAt(0).toUpperCase() + attribute.slice(1)}}} {{threes=[[6d4=3cs=3cf=0]]}} {{chaos=[[0]]}} {{total=[[0]]}} {{triscendence=[[0]]}}`;
                 let rollResult = await startRoll(rollBase);
 
                 if (rollResult.results.threes.result === 3) {
